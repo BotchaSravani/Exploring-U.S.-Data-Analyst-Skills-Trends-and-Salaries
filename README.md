@@ -59,7 +59,7 @@ Each Google Colab Notebook in this project is designed to explore a specific asp
 ## **1. What are the most demanded skills for the top 3 most popular data roles?**
 To identify the most in-demand skills for the top three most popular data roles, I first filtered the dataset to determine the most common job titles. Then, I extracted the top five skills associated with these roles. This analysis highlights the most sought-after job titles and their key skills, helping me understand which skills to prioritize based on my target role.
 
-View my notebook with detailed steps here: 
+View my notebook with detailed steps here: [Skills Analysis](Skills_Analysis.ipynb)
 
 
 
