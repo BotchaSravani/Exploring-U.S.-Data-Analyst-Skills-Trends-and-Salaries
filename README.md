@@ -61,11 +61,45 @@ To identify the most in-demand skills for the top three most popular data roles,
 
 View my notebook with detailed steps here: [Skills Analysis](Skills_Analysis.ipynb)
 
+### **Vizualizing the data**
+```python
+fig, ax = plt.subplots(len(job_titles), 1)
 
+for i, job_title in enumerate(job_titles):
+  df_perc_plot = df_merged[df_merged['job_title_short'] == job_title].head(5)
+  sns.barplot(data = df_perc_plot, x = 'skill_percentage', y = 'job_skills', ax = ax[i], hue = 'job_skills', palette = 'dark:blue')
+  ax[i].set_title(job_title)
+  ax[i].set_ylabel('')
+  ax[i].set_xlabel('')
 
+  #Adding the percentages as text beside the bars
+  for n, v in enumerate(df_perc_plot['skill_percentage']):
+    ax[i].text(v+1, n, f'{v:.0f}%', va='center')
 
+  ax[0].set_xlim(0, 68)
+  ax[1].set_xlim(0, 80)
+  ax[2].set_xlim(0, 90)
 
+  if i != len(job_title) - 1:
+    ax[i].set_xticks([])
 
+fig.suptitle('Likelhood of skills requested in US job postings', fontsize = 15)
+fig.tight_layout()
+```
+
+### **Results**
+
+![image](https://github.com/user-attachments/assets/4de5d84e-8f2e-4137-a3b0-4dda6c51b28c)
+
+*Bar graph visualizing the Likelhood of skills requested in US job posting in the top 3 roles.*
+
+### **Insights**
+
+1. SQL is a crucial skill across all three roles – It appears in the top skills for Data Analysts (60%), Data Engineers (72%), and Data Scientists (58%), emphasizing its importance in data-related job postings.
+
+2. Python is highly sought after, especially for Data Scientists (82%) and Data Engineers (68%) – While it is also relevant for Data Analysts (32%), it is more dominant in roles like Data Science and Data Engineering.
+
+3. Role-specific tools vary – Excel (48%) and Tableau (34%) are more relevant for Data Analysts, AWS (45%) and Spark (34%) are key for Data Engineers, while R (50%) is a notable requirement for Data Scientists. This highlights how different roles prioritize distinct skill sets.
 
 
 
