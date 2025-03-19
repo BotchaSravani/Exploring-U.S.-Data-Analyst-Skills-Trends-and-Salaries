@@ -101,6 +101,44 @@ fig.tight_layout()
 
 3. Role-specific tools vary – Excel (48%) and Tableau (34%) are more relevant for Data Analysts, AWS (45%) and Spark (34%) are key for Data Engineers, while R (50%) is a notable requirement for Data Scientists. This highlights how different roles prioritize distinct skill sets.
 
+# **2. How are in-demand skills trending for Data Analysts?**
 
+To analyze skill trends for Data Analysts, I filtered job postings for data analyst roles and grouped the required skills by the month they were listed. This allowed me to identify the top five skills for each month, providing insights into how skill demand evolved throughout the year.
 
+View my notebook with detailed steps here: [Skills Trends](Skills_Trends.ipynb)
+
+### **Vizualizing the data**
+
+```python
+df_plot = df_DA_perc.iloc[:, :5]
+
+sns.lineplot(data = df_plot, dashes = False, palette='tab10')
+plt.title('Top trending skills for Data Analysts')
+plt.xlabel('2024')
+plt.ylabel('Likelihood in job postings')
+plt.legend().remove()
+
+from matplotlib.ticker import PercentFormatter
+ax=plt.gca()
+ax.yaxis.set_major_formatter(PercentFormatter(decimals = 0))
+for i in range(5):
+  plt.text(11.2, df_plot.iloc[-1, i], df_plot.columns[i])
+
+sns.despine()
+```
+### **Results**
+
+![image](https://github.com/user-attachments/assets/952e4495-bded-461a-af1d-2dd7eb2918f7)
+
+*Bar graph visualizing the trending top skills for data analysts*
+
+### **Insights**
+
+Here are three key insights from the graph:
+
+1. SQL remains the most in-demand skill throughout the year – It consistently holds the highest percentage of mentions in job postings, reinforcing its importance for Data Analysts.
+
+2. Python and Excel show fluctuating trends – Python sees a slight increase toward the end of the year, while Excel experiences a decline after mid-year, suggesting a possible shift toward programming-based skills.
+
+3. Tableau and Power BI remain stable but less dominant – Both visualization tools maintain a steady demand, though at a lower percentage compared to SQL and Python and Excel. Power BI shows a shows a slight upward trend after the 1st Quarter. 
 
