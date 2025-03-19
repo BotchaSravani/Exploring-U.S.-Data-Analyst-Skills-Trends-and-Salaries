@@ -134,11 +134,38 @@ sns.despine()
 
 ### **Insights**
 
-Here are three key insights from the graph:
-
 1. SQL remains the most in-demand skill throughout the year – It consistently holds the highest percentage of mentions in job postings, reinforcing its importance for Data Analysts.
 
 2. Python and Excel show fluctuating trends – Python sees a slight increase toward the end of the year, while Excel experiences a decline after mid-year, suggesting a possible shift toward programming-based skills.
 
 3. Tableau and Power BI remain stable but less dominant – Both visualization tools maintain a steady demand, though at a lower percentage compared to SQL and Python and Excel. Power BI shows a shows a slight upward trend after the 1st Quarter. 
 
+## **3. How well do jobs and skills pay for Data Analysts?**
+To determine the highest-paying roles and skills, I focused on jobs in the United States and examined their median salaries. Before that, I reviewed the salary distributions of common data jobs such as Data Scientist, Data Engineer, and Data Analyst to understand which positions offer the highest pay.
+
+View my notebook with detailed steps here: [Skills Trends](Skills_Analysis.ipynb)
+
+### **Vizualizing the data**
+```python
+#Plotting
+sns.boxplot(data=df_US_6, x='salary_year_avg', y='job_title_short', hue = 'job_title_short', palette='dark:blue', order = job_order['job_title_short'])
+plt.title('Salary distribution of data jobs in US')
+plt.xlim(0, 420000)
+plt.ylabel('Job Title')
+plt.xlabel('Yearly salary average')
+ax = plt.gca()
+ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, pos: f'${int(x/1000)}k'))
+plt.show()
+```
+
+### **Results**
+![image](https://github.com/user-attachments/assets/475386f1-bc5f-44a9-b99c-b557709e3989)
+
+Box plot visualizing the salary distributions for the top 6 data job titles.
+
+### **Insights**
+1. Senior Data Scientists and Senior Data Engineers have the highest median salaries, while Data Analysts earn the lowest. The salary gap between junior and senior roles is substantial.
+
+2. Senior Data Scientists and Senior Data Engineers have multiple high-end outliers. This indicates that top professionals in these roles can earn exceptionally high compensation.
+
+3. The median salaries increase with the seniority and specialization of the roles. Senior roles (Senior Data Scientist, Senior Data Engineer) not only have higher median salaries but also larger differences in typical salaries, reflecting greater variance in compensation as responsibilities increase.
