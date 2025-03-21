@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a68a66c6-64e9-449b-83ea-b9f61bf171e5)# **Overview**
+# **Overview**
 
 Welcome to my exploration of the data job market, with a focus on data analyst roles. This project stemmed from a desire to better understand and navigate job opportunities in this field. It examines the most in-demand and highest-paying skills, aiming to identify the best prospects for data analysts. The analysis is based on data from Luke Barousse's Python Course, which offers comprehensive insights into job titles, salaries, locations, and key skills. Using Python scripts, I investigate critical questions such as the most sought-after skills, salary trends, and the relationship between demand and compensation in data analytics.
 
